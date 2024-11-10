@@ -1,0 +1,174 @@
+body {
+    background-color: #3572EF;
+    font-family: vazir;
+    min-height: 80vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.qr {
+    width: 400px;
+    padding: 10px;
+    background-color: #EEE;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr span {
+    margin: 20px;
+    font-size: 20px;
+}
+
+.qr input {
+    width: 80%;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.qr button {
+    border: none;
+    outline: none;
+    background-color: #3572EF;
+    width: 85%;
+    max-height: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    font-family: inherit;
+    color: white;
+    font-size: 16px;
+}
+
+.qr button:last-child {
+    margin-top: 0;
+}
+
+.qr button:hover {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    transition: .5s ease-in;
+    animation: zoom .4s linear 1;
+}
+
+#qr-box {
+    max-height: 0;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: max-height 1s;
+    overflow: hidden;
+}
+
+#qr-img {
+    padding: 10px;
+}
+
+#qr-box.active {
+    max-height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.error {
+    animation: shake .1s linear 10;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+#notif-box {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.notif {
+    width: 300px;
+    height: 80px;
+    background-color: #EEE;
+    font-weight: bold;
+    margin: 15px 0;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.notif i {
+    color: green;
+    margin: 0 20px;
+    font-size: 35px;
+}
+
+.notif.errormsg i {
+    color: red;
+}
+
+.notif::after {
+    content: '';
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: green;
+    animation: anime 3s linear forwards;
+}
+
+@keyframes anime {
+    100% {
+        width: 0;
+    }
+}
+
+.notif.errormsg::after {
+    background-color: red;
+}
